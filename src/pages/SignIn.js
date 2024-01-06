@@ -13,8 +13,30 @@ import {
   Link,
   Grid,
 } from "@chakra-ui/react";
+import { auth } from "../firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
+  const navigate = useNavigate();  const handleSignIn = async (values) => {
+    try {
+      await signInWithEmailAndPassword(auth,values.email, values.password);
+      console.log('Signed in successfully');
+      navigate('/'); 
+    } catch (error) {
+      console.error('Sign in error:', error.message);
+    }
+  };
+
+  // const handleSignUp = async (values) => {
+  //   try {
+  //     await createUserWithEmailAndPassword(auth, values.email, values.password);
+  //     console.log('User created successfully');
+  //   } catch (error) {
+  //     console.error('Sign up error:', error.message);
+  //   }
+  // }
+
   return (
     <Grid  templateColumns="repeat(auto-fill, minmax(1, 1fr))">
       
@@ -27,7 +49,7 @@ function SignIn() {
               rememberMe: false,
             }}
             onSubmit={(values) => {
-              alert(JSON.stringify(values, null, 2));
+              handleSignIn(values);
             }}
           >
             {({ handleSubmit, errors, touched }) => (

@@ -38,14 +38,17 @@ function Home() {
           mt={5}
           >
             Profile</Button>
-          <Button 
+      {false ? <Button  as={Link} 
+          to="/sign-in"
+          colorScheme="orange"
+          m={5}>Sepete Git </Button> :   <Button 
           as={Link} 
           to="/sign-in"
           colorScheme="orange"
           m={5}
           >
             Giriş Yap
-          </Button>
+          </Button>}
         </ButtonGroup>
       </Flex>
       <Grid
