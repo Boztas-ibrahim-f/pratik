@@ -1,0 +1,802 @@
+[
+    {
+        "id": 1,
+        "title": "Ürün 1",
+        "fiyat": 13,
+        "sayı": 9,
+        "inStock": true,
+        "image": "https://picsum.photos/100"
+    },
+    {
+        "id": 2,
+        "title": "Ürün 2",
+        "fiyat": 91,
+        "sayı": 1,
+        "inStock": false,
+        "image": "https://picsum.photos/200"
+    },
+    {
+        "id": 3,
+        "title": "Ürün 3",
+        "fiyat": 63,
+        "sayı": 8,
+        "inStock": true,
+        "image": "https://picsum.photos/300"
+    },
+    {
+        "id": 4,
+        "title": "Ürün 4",
+        "fiyat": 81,
+        "sayı": 1,
+        "inStock": false,
+        "image": "https://picsum.photos/400"
+    },
+    {
+        "id": 5,
+        "title": "Ürün 5",
+        "fiyat": 68,
+        "sayı": 1,
+        "inStock": true,
+        "image": "https://picsum.photos/500"
+    },
+    {
+        "id": 6,
+        "title": "Ürün 6",
+        "fiyat": 6,
+        "sayı": 10,
+        "inStock": true,
+        "image": "https://picsum.photos/600"
+    },
+    {
+        "id": 7,
+        "title": "Ürün 7",
+        "fiyat": 79,
+        "sayı": 9,
+        "inStock": true,
+        "image": "https://picsum.photos/700"
+    },
+    {
+        "id": 8,
+        "title": "Ürün 8",
+        "fiyat": 15,
+        "sayı": 1,
+        "inStock": false,
+        "image": "https://picsum.photos/800"
+    },
+    {
+        "id": 9,
+        "title": "Ürün 9",
+        "fiyat": 23,
+        "sayı": 6,
+        "inStock": true,
+        "image": "https://picsum.photos/900"
+    },
+    {
+        "id": 10,
+        "title": "Ürün 10",
+        "fiyat": 21,
+        "sayı": 6,
+        "inStock": false,
+        "image": "https://picsum.photos/110"
+    },
+    {
+        "id": 11,
+        "title": "Ürün 11",
+        "fiyat": 65,
+        "sayı": 2,
+        "inStock": true,
+        "image": "https://picsum.photos/120"
+    },
+    {
+        "id": 12,
+        "title": "Ürün 12",
+        "fiyat": 42,
+        "sayı": 2,
+        "inStock": false,
+        "image": "https://picsum.photos/130"
+    },
+    {
+        "id": 13,
+        "title": "Ürün 13",
+        "fiyat": 98,
+        "sayı": 10,
+        "inStock": false,
+        "image": "https://picsum.photos/140"
+    },
+    {
+        "id": 14,
+        "title": "Ürün 14",
+        "fiyat": 95,
+        "sayı": 4,
+        "inStock": false,
+        "image": "https://picsum.photos/990"
+    },
+    {
+        "id": 15,
+        "title": "Ürün 15",
+        "fiyat": 70,
+        "sayı": 3,
+        "inStock": false,
+        "image": "https://picsum.photos/150"
+    },
+    {
+        "id": 16,
+        "title": "Ürün 16",
+        "fiyat": 49,
+        "sayı": 9,
+        "inStock": true,
+        "image": "https://picsum.photos/160"
+    },
+    {
+        "id": 17,
+        "title": "Ürün 17",
+        "fiyat": 68,
+        "sayı": 6,
+        "inStock": false,
+        "image": "https://picsum.photos/170"
+    },
+    {
+        "id": 18,
+        "title": "Ürün 18",
+        "fiyat": 57,
+        "sayı": 8,
+        "inStock": false,
+        "image": "https://picsum.photos/180"
+    },
+    {
+        "id": 19,
+        "title": "Ürün 19",
+        "fiyat": 91,
+        "sayı": 8,
+        "inStock": false,
+        "image": "https://picsum.photos/190"
+    },
+    {
+        "id": 20,
+        "title": "Ürün 20",
+        "fiyat": 52,
+        "sayı": 8,
+        "inStock": true,
+        "image": "https://picsum.photos/220"
+    },
+    {
+        "id": 21,
+        "title": "Ürün 21",
+        "fiyat": 7,
+        "sayı": 7,
+        "inStock": false,
+        "image": "https://picsum.photos/210"
+    },
+    {
+        "id": 22,
+        "title": "Ürün 22",
+        "fiyat": 96,
+        "sayı": 7,
+        "inStock": false,
+        "image": "https://picsum.photos/230"
+    },
+    {
+        "id": 23,
+        "title": "Ürün 23",
+        "fiyat": 73,
+        "sayı": 10,
+        "inStock": true,
+        "image": "https://picsum.photos/980"
+    },
+    {
+        "id": 24,
+        "title": "Ürün 24",
+        "fiyat": 28,
+        "sayı": 8,
+        "inStock": true,
+        "image": "https://picsum.photos/240"
+    },
+    {
+        "id": 25,
+        "title": "Ürün 25",
+        "fiyat": 86,
+        "sayı": 10,
+        "inStock": false,
+        "image": "https://picsum.photos/250"
+    },
+    {
+        "id": 26,
+        "title": "Ürün 26",
+        "fiyat": 7,
+        "sayı": 7,
+        "inStock": true,
+        "image": "https://picsum.photos/260"
+    },
+    {
+        "id": 27,
+        "title": "Ürün 27",
+        "fiyat": 57,
+        "sayı": 2,
+        "inStock": true,
+        "image": "https://picsum.photos/270"
+    },
+    {
+        "id": 28,
+        "title": "Ürün 28",
+        "fiyat": 78,
+        "sayı": 2,
+        "inStock": true,
+        "image": "https://picsum.photos/280"
+    },
+    {
+        "id": 29,
+        "title": "Ürün 29",
+        "fiyat": 25,
+        "sayı": 3,
+        "inStock": true,
+        "image": "https://picsum.photos/290"
+    },
+    {
+        "id": 30,
+        "title": "Ürün 30",
+        "fiyat": 18,
+        "sayı": 5,
+        "inStock": false,
+        "image": "https://picsum.photos/301"
+    },
+    {
+        "id": 31,
+        "title": "Ürün 31",
+        "fiyat": 86,
+        "sayı": 2,
+        "inStock": true,
+        "image": "https://picsum.photos/302"
+    },
+    {
+        "id": 32,
+        "title": "Ürün 32",
+        "fiyat": 10,
+        "sayı": 7,
+        "inStock": false,
+        "image": "https://picsum.photos/111"
+    },
+    {
+        "id": 33,
+        "title": "Ürün 33",
+        "fiyat": 75,
+        "sayı": 10,
+        "inStock": true,
+        "image": "https://picsum.photos/112"
+    },
+    {
+        "id": 34,
+        "title": "Ürün 34",
+        "fiyat": 86,
+        "sayı": 1,
+        "inStock": true,
+        "image": "https://picsum.photos/113"
+    },
+    {
+        "id": 35,
+        "title": "Ürün 35",
+        "fiyat": 71,
+        "sayı": 6,
+        "inStock": false,
+        "image": "https://picsum.photos/114"
+    },
+    {
+        "id": 36,
+        "title": "Ürün 36",
+        "fiyat": 13,
+        "sayı": 7,
+        "inStock": false,
+        "image": "https://picsum.photos/115"
+    },
+    {
+        "id": 37,
+        "title": "Ürün 37",
+        "fiyat": 51,
+        "sayı": 6,
+        "inStock": true,
+        "image": "https://picsum.photos/116"
+    },
+    {
+        "id": 38,
+        "title": "Ürün 38",
+        "fiyat": 12,
+        "sayı": 7,
+        "inStock": false,
+        "image": "https://picsum.photos/117"
+    },
+    {
+        "id": 39,
+        "title": "Ürün 39",
+        "fiyat": 13,
+        "sayı": 8,
+        "inStock": true,
+        "image": "https://picsum.photos/118"
+    },
+    {
+        "id": 40,
+        "title": "Ürün 40",
+        "fiyat": 67,
+        "sayı": 4,
+        "inStock": true,
+        "image": "https://picsum.photos/119"
+    },
+    {
+        "id": 41,
+        "title": "Ürün 41",
+        "fiyat": 22,
+        "sayı": 3,
+        "inStock": false,
+        "image": "https://picsum.photos/964"
+    },
+    {
+        "id": 42,
+        "title": "Ürün 42",
+        "fiyat": 78,
+        "sayı": 4,
+        "inStock": true,
+        "image": "https://picsum.photos/121"
+    },
+    {
+        "id": 43,
+        "title": "Ürün 43",
+        "fiyat": 22,
+        "sayı": 8,
+        "inStock": false,
+        "image": "https://picsum.photos/122"
+    },
+    {
+        "id": 44,
+        "title": "Ürün 44",
+        "fiyat": 55,
+        "sayı": 1,
+        "inStock": false,
+        "image": "https://picsum.photos/123"
+    },
+    {
+        "id": 45,
+        "title": "Ürün 45",
+        "fiyat": 21,
+        "sayı": 1,
+        "inStock": false,
+        "image": "https://picsum.photos/127"
+    },
+    {
+        "id": 46,
+        "title": "Ürün 46",
+        "fiyat": 92,
+        "sayı": 7,
+        "inStock": false,
+        "image": "https://picsum.photos/125"
+    },
+    {
+        "id": 47,
+        "title": "Ürün 47",
+        "fiyat": 96,
+        "sayı": 8,
+        "inStock": false,
+        "image": "https://picsum.photos/126"
+    },
+    {
+        "id": 48,
+        "title": "Ürün 48",
+        "fiyat": 84,
+        "sayı": 9,
+        "inStock": false,
+        "image": "https://picsum.photos/124"
+    },
+    {
+        "id": 49,
+        "title": "Ürün 49",
+        "fiyat": 94,
+        "sayı": 7,
+        "inStock": true,
+        "image": "https://picsum.photos/128"
+    },
+    {
+        "id": 50,
+        "title": "Ürün 50",
+        "fiyat": 72,
+        "sayı": 10,
+        "inStock": true,
+        "image": "https://picsum.photos/129"
+    },
+    {
+        "id": 51,
+        "title": "Ürün 51",
+        "fiyat": 63,
+        "sayı": 5,
+        "inStock": true,
+        "image": "https://picsum.photos/987"
+    },
+    {
+        "id": 52,
+        "title": "Ürün 52",
+        "fiyat": 73,
+        "sayı": 10,
+        "inStock": false,
+        "image": "https://picsum.photos/999"
+    },
+    {
+        "id": 53,
+        "title": "Ürün 53",
+        "fiyat": 80,
+        "sayı": 9,
+        "inStock": false,
+        "image": "https://picsum.photos/131"
+    },
+    {
+        "id": 54,
+        "title": "Ürün 54",
+        "fiyat": 14,
+        "sayı": 4,
+        "inStock": false,
+        "image": "https://picsum.photos/132"
+    },
+    {
+        "id": 55,
+        "title": "Ürün 55",
+        "fiyat": 27,
+        "sayı": 7,
+        "inStock": false,
+        "image": "https://picsum.photos/133"
+    },
+    {
+        "id": 56,
+        "title": "Ürün 56",
+        "fiyat": 87,
+        "sayı": 6,
+        "inStock": false,
+        "image": "https://picsum.photos/134"
+    },
+    {
+        "id": 57,
+        "title": "Ürün 57",
+        "fiyat": 67,
+        "sayı": 4,
+        "inStock": true,
+        "image": "https://picsum.photos/135"
+    },
+    {
+        "id": 58,
+        "title": "Ürün 58",
+        "fiyat": 26,
+        "sayı": 8,
+        "inStock": false,
+        "image": "https://picsum.photos/136"
+    },
+    {
+        "id": 59,
+        "title": "Ürün 59",
+        "fiyat": 15,
+        "sayı": 5,
+        "inStock": false,
+        "image": "https://picsum.photos/137"
+    },
+    {
+        "id": 60,
+        "title": "Ürün 60",
+        "fiyat": 56,
+        "sayı": 4,
+        "inStock": false,
+        "image": "https://picsum.photos/138"
+    },
+    {
+        "id": 61,
+        "title": "Ürün 61",
+        "fiyat": 62,
+        "sayı": 8,
+        "inStock": false,
+        "image": "https://picsum.photos/139"
+    },
+    {
+        "id": 62,
+        "title": "Ürün 62",
+        "fiyat": 90,
+        "sayı": 9,
+        "inStock": true,
+        "image": "https://picsum.photos/141"
+    },
+    {
+        "id": 63,
+        "title": "Ürün 63",
+        "fiyat": 39,
+        "sayı": 9,
+        "inStock": false,
+        "image": "https://picsum.photos/142"
+    },
+    {
+        "id": 64,
+        "title": "Ürün 64",
+        "fiyat": 75,
+        "sayı": 8,
+        "inStock": true,
+        "image": "https://picsum.photos/143"
+    },
+    {
+        "id": 65,
+        "title": "Ürün 65",
+        "fiyat": 65,
+        "sayı": 7,
+        "inStock": false,
+        "image": "https://picsum.photos/145"
+    },
+    {
+        "id": 66,
+        "title": "Ürün 66",
+        "fiyat": 76,
+        "sayı": 2,
+        "inStock": false,
+        "image": "https://picsum.photos/144"
+    },
+    {
+        "id": 67,
+        "title": "Ürün 67",
+        "fiyat": 67,
+        "sayı": 5,
+        "inStock": false,
+        "image": "https://picsum.photos/151"
+    },
+    {
+        "id": 68,
+        "title": "Ürün 68",
+        "fiyat": 55,
+        "sayı": 10,
+        "inStock": false,
+        "image": "https://picsum.photos/152"
+    },
+    {
+        "id": 69,
+        "title": "Ürün 69",
+        "fiyat": 52,
+        "sayı": 8,
+        "inStock": true,
+        "image": "https://picsum.photos/153"
+    },
+    {
+        "id": 70,
+        "title": "Ürün 70",
+        "fiyat": 55,
+        "sayı": 4,
+        "inStock": true,
+        "image": "https://picsum.photos/154"
+    },
+    {
+        "id": 71,
+        "title": "Ürün 71",
+        "fiyat": 92,
+        "sayı": 8,
+        "inStock": true,
+        "image": "https://picsum.photos/155"
+    },
+    {
+        "id": 72,
+        "title": "Ürün 72",
+        "fiyat": 40,
+        "sayı": 5,
+        "inStock": true,
+        "image": "https://picsum.photos/156"
+    },
+    {
+        "id": 73,
+        "title": "Ürün 73",
+        "fiyat": 79,
+        "sayı": 1,
+        "inStock": false,
+        "image": "https://picsum.photos/157"
+    },
+    {
+        "id": 74,
+        "title": "Ürün 74",
+        "fiyat": 53,
+        "sayı": 10,
+        "inStock": false,
+        "image": "https://picsum.photos/158"
+    },
+    {
+        "id": 75,
+        "title": "Ürün 75",
+        "fiyat": 10,
+        "sayı": 6,
+        "inStock": true,
+        "image": "https://picsum.photos/159"
+    },
+    {
+        "id": 76,
+        "title": "Ürün 76",
+        "fiyat": 74,
+        "sayı": 7,
+        "inStock": false,
+        "image": "https://picsum.photos/555"
+    },
+    {
+        "id": 77,
+        "title": "Ürün 77",
+        "fiyat": 86,
+        "sayı": 4,
+        "inStock": true,
+        "image": "https://picsum.photos/214"
+    },
+    {
+        "id": 78,
+        "title": "Ürün 78",
+        "fiyat": 97,
+        "sayı": 3,
+        "inStock": true,
+        "image": "https://picsum.photos/245"
+    },
+    {
+        "id": 79,
+        "title": "Ürün 79",
+        "fiyat": 31,
+        "sayı": 9,
+        "inStock": false,
+        "image": "https://picsum.photos/354"
+    },
+    {
+        "id": 80,
+        "title": "Ürün 80",
+        "fiyat": 18,
+        "sayı": 3,
+        "inStock": true,
+        "image": "https://picsum.photos/453"
+    },
+    {
+        "id": 81,
+        "title": "Ürün 81",
+        "fiyat": 84,
+        "sayı": 8,
+        "inStock": false,
+        "image": "https://picsum.photos/296"
+    },
+    {
+        "id": 82,
+        "title": "Ürün 82",
+        "fiyat": 81,
+        "sayı": 10,
+        "inStock": false,
+        "image": "https://picsum.photos/357"
+    },
+    {
+        "id": 83,
+        "title": "Ürün 83",
+        "fiyat": 33,
+        "sayı": 3,
+        "inStock": true,
+        "image": "https://picsum.photos/758"
+    },
+    {
+        "id": 84,
+        "title": "Ürün 84",
+        "fiyat": 25,
+        "sayı": 9,
+        "inStock": false,
+        "image": "https://picsum.photos/951"
+    },
+    {
+        "id": 85,
+        "title": "Ürün 85",
+        "fiyat": 35,
+        "sayı": 6,
+        "inStock": false,
+        "image": "https://picsum.photos/854"
+    },
+    {
+        "id": 86,
+        "title": "Ürün 86",
+        "fiyat": 66,
+        "sayı": 5,
+        "inStock": true,
+        "image": "https://picsum.photos/965"
+    },
+    {
+        "id": 87,
+        "title": "Ürün 87",
+        "fiyat": 28,
+        "sayı": 3,
+        "inStock": true,
+        "image": "https://picsum.photos/963"
+    },
+    {
+        "id": 88,
+        "title": "Ürün 88",
+        "fiyat": 94,
+        "sayı": 4,
+        "inStock": true,
+        "image": "https://picsum.photos/423"
+    },
+    {
+        "id": 89,
+        "title": "Ürün 89",
+        "fiyat": 27,
+        "sayı": 3,
+        "inStock": false,
+        "image": "https://picsum.photos/458"
+    },
+    {
+        "id": 90,
+        "title": "Ürün 90",
+        "fiyat": 61,
+        "sayı": 3,
+        "inStock": true,
+        "image": "https://picsum.photos/457"
+    },
+    {
+        "id": 91,
+        "title": "Ürün 91",
+        "fiyat": 86,
+        "sayı": 6,
+        "inStock": false,
+        "image": "https://picsum.photos/321"
+    },
+    {
+        "id": 92,
+        "title": "Ürün 92",
+        "fiyat": 36,
+        "sayı": 4,
+        "inStock": false,
+        "image": "https://picsum.photos/269"
+    },
+    {
+        "id": 93,
+        "title": "Ürün 93",
+        "fiyat": 81,
+        "sayı": 4,
+        "inStock": true,
+        "image": "https://picsum.photos/752"
+    },
+    {
+        "id": 94,
+        "title": "Ürün 94",
+        "fiyat": 45,
+        "sayı": 1,
+        "inStock": true,
+        "image": "https://picsum.photos/365"
+    },
+    {
+        "id": 95,
+        "title": "Ürün 95",
+        "fiyat": 58,
+        "sayı": 10,
+        "inStock": false,
+        "image": "https://picsum.photos/459"
+    },
+    {
+        "id": 96,
+        "title": "Ürün 96",
+        "fiyat": 90,
+        "sayı": 5,
+        "inStock": false,
+        "image": "https://picsum.photos/299"
+    },
+    {
+        "id": 97,
+        "title": "Ürün 97",
+        "fiyat": 65,
+        "sayı": 9,
+        "inStock": false,
+        "image": "https://picsum.photos/699"
+    },
+    {
+        "id": 98,
+        "title": "Ürün 98",
+        "fiyat": 36,
+        "sayı": 4,
+        "inStock": true,
+        "image": "https://picsum.photos/599"
+    },
+    {
+        "id": 99,
+        "title": "Ürün 99",
+        "fiyat": 46,
+        "sayı": 10,
+        "inStock": false,
+        "image": "https://picsum.photos/499"
+    },
+    {
+        "id": 100,
+        "title": "Ürün 100",
+        "fiyat": 94,
+        "sayı": 2,
+        "inStock": true,
+        "image": "https://picsum.photos/722"
+    }
+]
