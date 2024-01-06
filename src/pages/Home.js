@@ -3,7 +3,6 @@ import {
   Button,
   ButtonGroup,
   Card,
-  CardBody,
   CardFooter,
   Divider,
   Flex,
@@ -50,20 +49,20 @@ function Home() {
         </ButtonGroup>
       </Flex>
       <Grid
-        templateColumns="repeat(auto-fill, minmax(250px, 2fr))"
-        m="3"
+       templateColumns={{base:"repeat(1, 1fr)", md:'repeat(2, 1fr)',lg:"repeat(3, 1fr)", xl:"repeat(4, 1fr)", "2xl":"repeat(5, 1fr)"}}
         gap={5}
+        p={1}
+        m="3"
       >
         {data.map((urun) => (
-          <Card key={urun.id} maxW="sm">
-            <CardBody>
+          <Card key={urun.id} maxW="sm" p="5">
               <Image
                 width="100%"
                 src={urun.image}
                 alt={urun.title}
                 borderRadius="lg"
               />
-              <Stack mt="6" spacing="3" display="flex">
+              <Stack mt="6" spacing="3" display="flex" h="full">
                 {/* //Stok sayılarını kutunun alt tarafına alıncak */}
                 <Box>
                   <Heading size="md">{urun.title}</Heading>
@@ -72,7 +71,7 @@ function Home() {
                   </Text>
                 </Box>
                 <Spacer />
-                <Box gridColumn="revert-layer">
+                <Box height="full" display="flex" justifyContent="flex-end" flexDirection="column" >
                   <Text color="blue.600" fontSize="2xl">
                     {urun.fiyat} TL
                   </Text>
@@ -81,7 +80,6 @@ function Home() {
                   </Text>
                 </Box>
               </Stack>
-            </CardBody>
             <Divider />
             <CardFooter justifyContent="center">
               <ButtonGroup spacing="2">
