@@ -12,39 +12,46 @@ import {
   Link,
   Grid,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+  updateCurrentUser,
+} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function SignUp() {
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-  console.log(name)
-  console.log(email)
-  console.log(password)
+  const navigate = useNavigate();
 
+  const handleSignUp = async (values) => {
+    try {
+      const userData = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
+      await updateCurrentUser(auth, { displayName: values.displayName });
 
-  const auth = getAuth();
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+      console.log("User data saved to Firestore:", userData);
+      toast.success("Başarılı şekilde giriş yapıldı");
+      navigate("/profile");
+    } catch (error) {
+      toast.error("Bir hata oluştu tekrar deneyiniz", error.massage);
+    }
+  };
+
   return (
     <Grid templateColumns="repeat(auto-fill, minmax(1, 1fr))">
       <Flex bg="gray.100" align="center" justify="center" h="100vh" w="100%">
         <Box bg="white" p={6} rounded="md" borderRadius={50}>
           <Formik
             initialValues={{
-              name: "",
+              displayName: "",
               email: "",
               password: "",
             }}
             onSubmit={(values) => {
-              alert(JSON.stringify(values, null, 2));
+              handleSignUp(values);
             }}
           >
             {({ handleSubmit, errors, touched }) => (
@@ -54,13 +61,10 @@ function SignUp() {
                     <FormLabel htmlFor="name">Name</FormLabel>
                     <Field
                       as={Input}
-                      id="name"
-                      name="name"
-                      type="name"
+                      id="displayName"
+                      name="displayName"
+                      type="text"
                       variant="filled"
-                      value={name}
-                      onChange={e => setName(e.currentTarget.value)}
-                      
                     />
                   </FormControl>
                   <FormControl>
@@ -71,8 +75,6 @@ function SignUp() {
                       name="email"
                       type="email"
                       variant="filled"
-                      value={email}
-                      onChange={e => setEmail(e.currentTarget.value)}
                     />
                   </FormControl>
                   <FormControl
@@ -92,12 +94,10 @@ function SignUp() {
                         }
                         return error;
                       }}
-                      value={password}
-                      onChange={e=>setPassword(e.currentTarget.value)}
                     />
                     <FormErrorMessage>{errors.password}</FormErrorMessage>
                   </FormControl>
-                 
+
                   <Button type="submit" colorScheme="orange" width="full">
                     SignUp
                   </Button>

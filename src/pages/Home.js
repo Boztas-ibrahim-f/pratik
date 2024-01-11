@@ -18,12 +18,30 @@ import {
 import data from "../data/data.json";
 import LoremIpsum from "react-lorem-ipsum";
 import logo from "../Ted.jpg";
-import { Link } from "react-router-dom";
+import { auth } from '../firebase';
+import { useEffect, useState } from "react";
+import {OrangeButton, PurpleButton} from "../components/Button";
+
 
 function Home() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if(user) {
+        setUser(user)
+      } else {
+        setUser(null)
+      }
+    })
+    return () => {
+      unsubscribe()
+    }
+  }, [])
+  console.log(user)
+
   return (
     <>
-      <Flex justifyContent="space-between" align="center">
+      <Flex  justifyContent="space-between" align="center">
         <Image src={logo} w={150} mt={2} ml={5} />
         <Input 
         variant='outline' 
@@ -31,28 +49,23 @@ function Home() {
         w="md"  
         />
         <ButtonGroup>
-          <Button 
-          as={Link}
+          {!user ?<PurpleButton
+          to="/sign-in"
+          >
+            Giriş Yap</PurpleButton>: <PurpleButton
+            to="/basket"
+            >Sepet</PurpleButton>}
+      {!user ? <OrangeButton  
+          to="/sign-up"
+          >Kayıt Ol </OrangeButton> :   <OrangeButton 
           to="/profile"
-          colorScheme="purple"
-          mt={5}
           >
-            Profile</Button>
-      {false ? <Button  as={Link} 
-          to="/sign-in"
-          colorScheme="orange"
-          m={5}>Sepete Git </Button> :   <Button 
-          as={Link} 
-          to="/sign-in"
-          colorScheme="orange"
-          m={5}
-          >
-            Giriş Yap
-          </Button>}
+            Profile
+          </OrangeButton>}
         </ButtonGroup>
       </Flex>
       <Grid
-       templateColumns={{base:"repeat(1, 1fr)", md:'repeat(2, 1fr)',lg:"repeat(3, 1fr)", xl:"repeat(4, 1fr)", "2xl":"repeat(5, 1fr)"}}
+       templateColumns={{base:"repeat(1, 1fr)" , md:'repeat(2, 1fr)',lg:"repeat(3, 1fr)", xl:"repeat(4, 1fr)", "2xl":"repeat(5, 1fr)"}}
         gap={5}
         p={1}
         m="3"
@@ -66,7 +79,6 @@ function Home() {
                 borderRadius="lg"
               />
               <Stack mt="6" spacing="3" display="flex" h="full">
-                {/* //Stok sayılarını kutunun alt tarafına alıncak */}
                 <Box>
                   <Heading size="md">{urun.title}</Heading>
                   <Text >

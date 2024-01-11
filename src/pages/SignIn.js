@@ -11,37 +11,31 @@ import {
   Input,
   VStack,
   Link,
-  Grid,
+  Grid
 } from "@chakra-ui/react";
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 function SignIn() {
-  const navigate = useNavigate();  const handleSignIn = async (values) => {
+  
+  const navigate = useNavigate();
+  const handleSignIn = async (values) => {
     try {
-      await signInWithEmailAndPassword(auth,values.email, values.password);
-      console.log('Signed in successfully');
-      navigate('/'); 
+      await signInWithEmailAndPassword(auth, values.email, values.password);
+      toast.success('Successfully created!');
+      navigate("/");
     } catch (error) {
-      console.error('Sign in error:', error.message);
+      toast.error('This is an error!');
     }
   };
 
-  // const handleSignUp = async (values) => {
-  //   try {
-  //     await createUserWithEmailAndPassword(auth, values.email, values.password);
-  //     console.log('User created successfully');
-  //   } catch (error) {
-  //     console.error('Sign up error:', error.message);
-  //   }
-  // }
-
   return (
-    <Grid  templateColumns="repeat(auto-fill, minmax(1, 1fr))">
-      
-      <Flex bg="gray.100" align="center" justify="center" h="100vh" w="100%" >
-        <Box bg="white" p={6} rounded="md"  borderRadius={50}>
+    <Grid templateColumns="repeat(auto-fill, minmax(1, 1fr))">
+      <Flex bg="gray.100" align="center" justify="center" h="100vh" w="100%">
+        <Box bg="white" p={6} rounded="md" borderRadius={50}>
           <Formik
             initialValues={{
               email: "",
@@ -98,13 +92,11 @@ function SignIn() {
                   <Button type="submit" colorScheme="orange" width="full">
                     Login
                   </Button>
-                  <Flex  >
-                  <Link mr={10} href="/reset-password" >
-                    Şifremi Unuttum?
-                  </Link>
-                  <Link  href="/sign-up">
-                    Kayıt olmadın mı? Kayıt Ol
-                  </Link>
+                  <Flex>
+                    <Link mr={10} href="/reset-password">
+                      Şifremi Unuttum?
+                    </Link>
+                    <Link href="/sign-up">Kayıt olmadın mı? Kayıt Ol</Link>
                   </Flex>
                 </VStack>
               </form>
@@ -112,7 +104,6 @@ function SignIn() {
           </Formik>
         </Box>
       </Flex>
-      
     </Grid>
   );
 }
