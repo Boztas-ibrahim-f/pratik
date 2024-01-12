@@ -16,7 +16,6 @@ import {
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import toast from "react-hot-toast";
 
 function SignIn() {
