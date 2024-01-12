@@ -8,7 +8,7 @@ import {
   Input,
   InputGroup,
 } from "@chakra-ui/react";
-import { signOut } from "firebase/auth";
+import { signOut, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
 import { useState } from "react";
 import { OrangeButton } from "../components/Button";
@@ -26,19 +26,26 @@ function Profile() {
   });
   const navigate = useNavigate();
 
-  console.log(auth.currentUser);
-  console.log(veri);
+  const handleChange = (e, field) => {
+    setVeri({ ...veri, [field]: e.target.value });
+    
+  };
 
-  const updateUserProfile = async () => {
+  const handleSubmit = async (e) => {
+    console.log("tıklandı")
+    e.preventDefault();
     if (user) {
       try {
-        await auth.updateCurrentUser({
+        await updateProfile(auth.currentUser, {
           displayName: veri.displayName,
-          email: veri.email,
-          phoneNumber: veri.number,
-        });
+          phoneNumber: veri.number
+        })
         toast.success("Profil başarıyla güncellendi");
-
+        setVeri({
+          displayName: "",
+          email: "",
+          number: "",
+        });
         setUser(auth.currentUser);
       } catch (error) {
         console.error("Error updating user profile:", error.message);
@@ -47,33 +54,14 @@ function Profile() {
     }
   };
 
-  const handleChange = (e, field) => {
-    setVeri({ ...veri, [field]: e.target.value });
-    
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setVeri({
-        displayName: "",
-        email: "",
-        number: "",
-      });
-    try {
-      await updateUserProfile();
-
-      
-    } catch (error) {
-      console.error("Error updating user profile:", error.message);
-      toast.error("Profil güncellenirken bir hata oluştu");
-    }
-  };
+  console.log(veri)
 
   const authClick = async () => {
     await signOut(auth);
     toast.success("Başarılı şekilde çıkış yapıldı");
     navigate("/");
   };
+  console.log("u",auth.currentUser)
   return (
     <Grid
       templateAreas={`"header header" "nav main"`}
@@ -123,7 +111,7 @@ function Profile() {
             <Flex
               alignItems="center"
               mt="50"
-              p={10,10,0,5}
+              p="10px 10px 0 5"
               gap="3"
               width="full"
               height="auto"
@@ -168,7 +156,7 @@ function Profile() {
                       justifyContent="end"
                       mt={4}
                     >
-                      <OrangeButton type="submit">Değiştir</OrangeButton>
+                      <Button type="submit">Değiştir</Button>
                     
                   </Box>
                 </form>
@@ -195,15 +183,15 @@ function Profile() {
                     display="flex"
                   >
                     <Box width="30%" mt={3} >İsim </Box>
-                    <Box >: {user.displayName}dsa</Box>
+                    <Box >: {user.displayName}</Box>
                   </Box>
                   <Box my={3}  display="flex">
                     <Box width="30%">Email </Box>
-                    <Box>: {user.email}dsa</Box>
+                    <Box>: {user.email}</Box>
                   </Box>
                   <Box  my={3} display="flex">
                     <Box w="30%">Telefon</Box>
-                    <Box>: {user.phoneNumber}das</Box>
+                    <Box>: {user?.phoneNumber}</Box>
                   </Box>
                 </Box>
               </Box>
