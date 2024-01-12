@@ -193,7 +193,6 @@ function Profile() {
                   <Box
                    alignItems="end"
                     display="flex"
-                    
                   >
                     <Box width="30%" mt={3} >İsim </Box>
                     <Box >: {user.displayName}dsa</Box>

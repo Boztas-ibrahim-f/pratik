@@ -30,9 +30,7 @@ function SignUp() {
         values.email,
         values.password
       );
-      await updateCurrentUser(auth, { displayName: values.displayName });
 
-      console.log("User data saved to Firestore:", userData);
       toast.success("Başarılı şekilde giriş yapıldı");
       navigate("/profile");
     } catch (error) {

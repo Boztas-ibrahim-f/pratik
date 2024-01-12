@@ -21,15 +21,17 @@ import toast from "react-hot-toast";
 function SignIn() {
   
   const navigate = useNavigate();
-  const handleSignIn = async (values) => {
-    try {
-      await signInWithEmailAndPassword(auth, values.email, values.password);
-      toast.success('Successfully created!');
-      navigate("/");
-    } catch (error) {
-      toast.error('This is an error!');
-    }
-  };
+  
+    const handleSignIn = async (values) => {
+      try {
+        await signInWithEmailAndPassword(auth, values.email, values.password);
+        toast.success('Başarılı şekilde giriş yapıldı.');
+        navigate("/");
+      } catch (error) {
+        toast.error('Giriş yapılamadı. Lütfen tekrar deneyiniz !');
+      } 
+    };
+ 
 
   return (
     <Grid templateColumns="repeat(auto-fill, minmax(1, 1fr))">
