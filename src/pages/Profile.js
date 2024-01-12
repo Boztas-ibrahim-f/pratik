@@ -7,7 +7,6 @@ import {
   Image,
   Input,
   InputGroup,
-  assignRef,
 } from "@chakra-ui/react";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
@@ -16,7 +15,6 @@ import { OrangeButton } from "../components/Button";
 import Logo from "../Ted.jpg";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { useEffect } from "react";
 
 function Profile() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -51,18 +49,20 @@ function Profile() {
 
   const handleChange = (e, field) => {
     setVeri({ ...veri, [field]: e.target.value });
+    
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await updateUserProfile();
-
-      setVeri({
+    setVeri({
         displayName: "",
         email: "",
         number: "",
       });
+    try {
+      await updateUserProfile();
+
+      
     } catch (error) {
       console.error("Error updating user profile:", error.message);
       toast.error("Profil güncellenirken bir hata oluştu");
@@ -83,34 +83,22 @@ function Profile() {
       width="100%"
       color="blackAlpha.700"
       fontWeight="bold"
-      backgroundColor="yellow"
     >
-      <GridItem
-        display="flex"
-        justifyContent="space-between"
-        area={"header"}
-        backgroundColor="pink"
-      >
+      <GridItem display="flex" justifyContent="space-between" area={"header"}>
         <Image src={Logo} h={50} w={150} mt={6} ml="11%" borderRadius="full" />
         <OrangeButton to="/">Ana Sayfa</OrangeButton>
       </GridItem>
       <Flex>
         <GridItem
-          width="50%"
+          width="40%"
           height="100%"
           area={"nav"}
-          backgroundColor="black"
           display="flex"
           flexDirection="column"
+          pl={5}
           gap={2}
         >
-          <Box
-            display="flex"
-            width="full"
-            justifyContent="center"
-            backgroundColor="white"
-            mt={10}
-          >
+          <Box display="flex" width="full" justifyContent="center" mt={10}>
             <Image
               src="https://www.glassium.com/img/products/yt0108-yuvarlak-cam-tablo-kirilmaz-ev-dekorasyonu-1_07.04.2023_eb41548.jpg"
               w={100}
@@ -130,56 +118,58 @@ function Profile() {
             Çıkış Yap
           </Button>
         </GridItem>
-        <GridItem width="full" height="full" backgroundColor="red">
+        <GridItem width="full" height="full" >
           {menuVisible ? (
             <Flex
               alignItems="center"
-              mt="39"
-              backgroundColor="yellowgreen"
+              mt="50"
+              p={10,10,0,5}
               gap="3"
               width="full"
               height="auto"
-              border="2"
             >
-              <Box
-                border="2"
-                borderColor="black"
-                borderBottomStyle="solid"
-                backgroundColor="blue"
-                height="min-content"
-                borderRadius={30}
-                width="full"
-                p={10}
-              >
-                <form onSubmit={handleSubmit}>
-                  <InputGroup
-                    flexDirection="column"
-                    border={1}
-                    shadow={2}
-                    borderStyle="solid"
-                  >
-                    <Input
-                      backgroundColor="violet"
-                      placeholder="İsim"
-                      value={veri.displayName}
-                      onChange={(e) => handleChange(e, "displayName")}
-                    />
-                    <Input
-                      backgroundColor="violet"
-                      placeholder="Email"
-                      value={veri.email}
-                      onChange={(e) => handleChange(e, "email")}
-                    />
-                    <Input
-                      backgroundColor="violet"
-                      type="number"
-                      placeholder="Telefon numarası"
-                      value={veri.number}
-                      onChange={(e) => handleChange(e, "number")}
-                    />
-                  </InputGroup>
-                  <Box width="full" display="flex" justifyContent="end" mt={4}>
-                    <OrangeButton type="submit">Değiştir</OrangeButton>
+              <Box height="min-content" borderRadius={30} width="full" p={10}>
+                <form onSubmit={handleSubmit} >
+                    <InputGroup
+                      flexDirection="column"
+                      shadow={2}
+                      borderStyle="solid"
+                      border="2"
+                      gap={2}
+                      
+                      
+                    >
+                      <Input
+                      focusBorderColor='purple.400'
+                      variant='flushed'
+                        placeholder="İsim"
+                        value={veri.displayName}
+                        onChange={(e) => handleChange(e, "displayName")}
+                      />
+                      <Input
+                      focusBorderColor='purple.400'
+                      variant='flushed'
+                        placeholder="Email"
+                        value={veri.email}
+                        onChange={(e) => handleChange(e, "email")}
+                      />
+                      <Input
+                      focusBorderColor='purple.400'
+                      variant='flushed'
+                        type="number"
+                        placeholder="Telefon numarası"
+                        value={veri.number}
+                        onChange={(e) => handleChange(e, "number")}
+                      />
+                    </InputGroup>
+                    <Box
+                      width="full"
+                      display="flex"
+                      justifyContent="end"
+                      mt={4}
+                    >
+                      <OrangeButton type="submit">Değiştir</OrangeButton>
+                    
                   </Box>
                 </form>
               </Box>
@@ -188,44 +178,31 @@ function Profile() {
             <Flex
               alignItems="center"
               mt="39"
-              backgroundColor="yellowgreen"
-              gap="3"
               width="full"
               height="auto"
-              border="2"
+              gap="10"
+              
             >
               <Box
-                border="2"
-                borderColor="black"
-                borderBottomStyle="solid"
-                backgroundColor="blue"
                 height="min-content"
-                borderRadius={30}
                 width="full"
                 p={10}
                 m={5}
               >
-                <Box
-                  backgroundColor="pink.200"
-                  border={2}
-                  borderStyle="solid"
-                  borderRadius={30}
-                  p={3}
-                >
+                <Box border={2} borderStyle="solid" borderColor="blue.400" borderRadius={30}  px={5}>
                   <Box
-                    border={2}
-                    borderColor="black"
+                   alignItems="end"
                     display="flex"
-                    justifyContent="start"
+                    
                   >
-                    <Box width="30%">İsim </Box>
-                    <Box>: {user.displayName}dsa</Box>
+                    <Box width="30%" mt={3} >İsim </Box>
+                    <Box >: {user.displayName}dsa</Box>
                   </Box>
-                  <Box my={3} border={2} display="flex">
-                    <Box width="30%">Email: </Box>
+                  <Box my={3}  display="flex">
+                    <Box width="30%">Email </Box>
                     <Box>: {user.email}dsa</Box>
                   </Box>
-                  <Box border="2" borderColor="black" display="flex">
+                  <Box  my={3} display="flex">
                     <Box w="30%">Telefon</Box>
                     <Box>: {user.phoneNumber}das</Box>
                   </Box>
