@@ -1,5 +1,4 @@
 import { Formik, Field } from "formik";
-
 import {
   Box,
   Button,
@@ -10,13 +9,14 @@ import {
   FormErrorMessage,
   Input,
   VStack,
-  Link,
-  Grid
+  Grid,
+  Image
 } from "@chakra-ui/react";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import Logo from "../Ted.jpg"
 
 function SignIn() {
   
@@ -34,9 +34,10 @@ function SignIn() {
  
 
   return (
-    <Grid templateColumns="repeat(auto-fill, minmax(1, 1fr))">
-      <Flex bg="gray.100" align="center" justify="center" h="100vh" w="100%">
-        <Box bg="white" p={6} rounded="md" borderRadius={50}>
+    <Grid  templateColumns="repeat(1, 1fr)">
+      <Flex bg="gray.100" align="center" justify="center" flexDirection="column" h="100vh" w="100%">
+      <Image  src={Logo} w={200} mb={5} onClick={()=> navigate("/")} cursor="pointer"></Image>
+        <Box bg="white" p={6} rounded="md" borderRadius={50} w="30%" h="50%" boxShadow='2xl'>
           <Formik
             initialValues={{
               email: "",
@@ -58,18 +59,20 @@ function SignIn() {
                       name="email"
                       type="email"
                       variant="filled"
+                      placeholder="Email"
                     />
                   </FormControl>
                   <FormControl
                     isInvalid={!!errors.password && touched.password}
                   >
-                    <FormLabel htmlFor="password">Password</FormLabel>
+                    <FormLabel htmlFor="password">Şifre</FormLabel>
                     <Field
                       as={Input}
                       id="password"
                       name="password"
                       type="password"
                       variant="filled"
+                      placeholder="******"
                       validate={(value) => {
                         let error;
 
@@ -91,14 +94,16 @@ function SignIn() {
                     Remember me?
                   </Field>
                   <Button type="submit" colorScheme="orange" width="full">
-                    Login
+                    Giriş 
                   </Button>
-                  <Flex>
-                    <Link mr={10} href="/reset-password">
-                      Şifremi Unuttum?
+                  <Box display="flex" justifyContent="space-between" w="full">
+                    <Link to="/reset-password">
+                    Şifremi Unuttum ?
                     </Link>
-                    <Link href="/sign-up">Kayıt olmadın mı? Kayıt Ol</Link>
-                  </Flex>
+                    <Link to="/sign-up">
+                    Kayıt olmadın mı? Kayıt Ol 
+                    </Link>
+                  </Box>
                 </VStack>
               </form>
             )}

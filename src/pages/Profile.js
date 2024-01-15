@@ -18,14 +18,14 @@ import toast from "react-hot-toast";
 
 function Profile() {
   const [menuVisible, setMenuVisible] = useState(false);
+  const navigate = useNavigate()
   const [user, setUser] = useState(auth.currentUser);
   const [veri, setVeri] = useState({
     displayName: "",
     email: "",
-    number: "",
+    number: null
   });
-  const navigate = useNavigate();
-
+ 
   const handleChange = (e, field) => {
     setVeri({ ...veri, [field]: e.target.value });
     
@@ -44,7 +44,7 @@ function Profile() {
         setVeri({
           displayName: "",
           email: "",
-          number: "",
+          number: ""
         });
         setUser(auth.currentUser);
       } catch (error) {
@@ -53,13 +53,21 @@ function Profile() {
       }
     }
   };
-
-  console.log(veri)
+  console.log(user);
+  const deleteUser = async () => {
+    await signOut(auth);
+    toast.success("Kullanıcı silme işlemi başarılı.");
+    await user.delete(auth)
+    navigate("/");
+  
+    
+  }
 
   const authClick = async () => {
+    navigate("/");
     await signOut(auth);
     toast.success("Başarılı şekilde çıkış yapıldı");
-    navigate("/");
+    
   };
   console.log("u",auth.currentUser)
   return (
@@ -71,9 +79,10 @@ function Profile() {
       width="100%"
       color="blackAlpha.700"
       fontWeight="bold"
+      bg="gray.100"
     >
       <GridItem display="flex" justifyContent="space-between" area={"header"}>
-        <Image src={Logo} h={50} w={150} mt={6} ml="11%" borderRadius="full" />
+        <Image src={Logo} h={50} w={150} mt={6} ml="11%" borderRadius="full" onClick={() => navigate("/")} cursor="pointer" />
         <OrangeButton to="/">Ana Sayfa</OrangeButton>
       </GridItem>
       <Flex>
@@ -102,9 +111,18 @@ function Profile() {
           <Button colorScheme="purple" onClick={() => setMenuVisible(!false)}>
             Bilgilerimi Değiştir
           </Button>
-          <Button colorScheme="blue" mt="auto" onClick={authClick}>
-            Çıkış Yap
+          <Button colorScheme="purple" onClick={()=>navigate("/reset-password")}>Şifremi Yenile</Button>
+          <Box display="flex"
+          flexDirection="column" 
+          gap={1}
+          mt="auto"
+          >
+          <Button colorScheme="blue" onClick={deleteUser}>
+            Hesabımı Sil
           </Button>
+          <Button colorScheme="blue" onClick={authClick}>
+            Çıkış Yap
+          </Button></Box>
         </GridItem>
         <GridItem width="full" height="full" >
           {menuVisible ? (
@@ -156,7 +174,7 @@ function Profile() {
                       justifyContent="end"
                       mt={4}
                     >
-                      <Button type="submit">Değiştir</Button>
+                      <Button colorScheme="blue" type="submit">Değiştir</Button>
                     
                   </Box>
                 </form>
