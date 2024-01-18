@@ -60,8 +60,8 @@ function SignIn() {
             xl: "30%",
           }}
           h={{
-            base: "55%",
-            lg: "40%",
+            base: "45%",
+            lg: "60%"
             
           }}
           boxShadow="2xl"
