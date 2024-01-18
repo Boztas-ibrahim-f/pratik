@@ -61,7 +61,7 @@ function SignIn() {
           }}
           h={{
             base: "45%",
-            lg: "60%"
+            md: "60%"
             
           }}
           boxShadow="2xl"
