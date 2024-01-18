@@ -10,34 +10,63 @@ import {
   Input,
   VStack,
   Grid,
-  Image
+  Image,
 } from "@chakra-ui/react";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import Logo from "../Ted.jpg"
+import Logo from "../Ted.jpg";
 
 function SignIn() {
-  
   const navigate = useNavigate();
-  
-    const handleSignIn = async (values) => {
-      try {
-        await signInWithEmailAndPassword(auth, values.email, values.password);
-        toast.success('Başarılı şekilde giriş yapıldı.');
-        navigate("/");
-      } catch (error) {
-        toast.error('Giriş yapılamadı. Lütfen tekrar deneyiniz !');
-      } 
-    };
- 
+
+  const handleSignIn = async (values) => {
+    try {
+      await signInWithEmailAndPassword(auth, values.email, values.password);
+      toast.success("Başarılı şekilde giriş yapıldı.");
+      navigate("/");
+    } catch (error) {
+      toast.error("Giriş yapılamadı. Lütfen tekrar deneyiniz !");
+    }
+  };
 
   return (
-    <Grid  templateColumns="repeat(1, 1fr)">
-      <Flex bg="gray.100" align="center" justify="center" flexDirection="column" h="100vh" w="100%">
-      <Image  src={Logo} w={200} mb={5} onClick={()=> navigate("/")} cursor="pointer"></Image>
-        <Box bg="white" p={6} rounded="md" borderRadius={50} w="30%" h="50%" boxShadow='2xl'>
+    <Grid templateColumns="repeat(1, 1fr)">
+      <Flex
+        bg="gray.100"
+        align="center"
+        justify="center"
+        flexDirection="column"
+        h="100vh"
+        w="100%"
+      >
+        <Image
+          src={Logo}
+          w={200}
+          mb={5}
+          onClick={() => navigate("/")}
+          cursor="pointer"
+        ></Image>
+        <Box
+          bg="white"
+          p={6}
+          rounded="md"
+          borderRadius={50}
+          w={{
+            base: "85%",
+            md: "50%",
+            lg: "40%",
+            xl: "30%",
+          }}
+          h={{
+            base: "55%",
+            lg: "40%",
+            "2xl": "20%"
+          }}
+          boxShadow="2xl"
+
+        >
           <Formik
             initialValues={{
               email: "",
@@ -47,11 +76,12 @@ function SignIn() {
             onSubmit={(values) => {
               handleSignIn(values);
             }}
+            
           >
             {({ handleSubmit, errors, touched }) => (
               <form onSubmit={handleSubmit}>
                 <VStack spacing={4} align="flex-start" display="flex">
-                  <FormControl>
+                  <FormControl w="full">
                     <FormLabel htmlFor="email">Email Address</FormLabel>
                     <Field
                       as={Input}
@@ -94,15 +124,11 @@ function SignIn() {
                     Remember me?
                   </Field>
                   <Button type="submit" colorScheme="orange" width="full">
-                    Giriş 
+                    Giriş
                   </Button>
                   <Box display="flex" justifyContent="space-between" w="full">
-                    <Link to="/reset-password">
-                    Şifremi Unuttum ?
-                    </Link>
-                    <Link to="/sign-up">
-                    Kayıt olmadın mı? Kayıt Ol 
-                    </Link>
+                    <Link to="/reset-password">Şifremi Unuttum ?</Link>
+                    <Link to="/sign-up">Kayıt olmadın mı? Kayıt Ol</Link>
                   </Box>
                 </VStack>
               </form>
