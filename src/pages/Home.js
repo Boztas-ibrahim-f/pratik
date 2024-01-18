@@ -4,16 +4,13 @@ import {
   ButtonGroup,
   Card,
   CardFooter,
-  Divider,
   Flex,
   Grid,
   Heading,
   Image,
   Input,
-  Spacer,
   Stack,
   Text,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 
 import data from "../data/data.json";
@@ -28,8 +25,6 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [cart, setCart] = useState([]);
   
-  const isLargeScreen = useBreakpointValue({ base: false, md: true });
-  const [menuVisible, setMenuVisible] = useState(isLargeScreen);
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {

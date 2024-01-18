@@ -63,6 +63,7 @@ function SignIn() {
             base: "55%",
             lg: "40%",
             "2xl": "20%"
+            
           }}
           boxShadow="2xl"
 

@@ -4,7 +4,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
 import { Box, Button, Flex, Image, Input} from "@chakra-ui/react";
 import toast from "react-hot-toast";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Ted.jpg"
 
 function ResetPassword() {
@@ -55,7 +55,12 @@ function ResetPassword() {
     >
       <Image src={Logo} w={200} mb={5} onClick={() => navigate("/")} cursor="pointer"/>
       <Box
-        h="50%"
+        h={{
+          base: "45%",
+          lg: "40%",
+          "2xl": "20%"
+          
+        }}
         w={{
           base: "85%",
           md: "50%",

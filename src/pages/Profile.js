@@ -314,18 +314,18 @@ function Profile() {
                     flexWrap="wrap"
                   >
                     <Box alignItems="end" display="flex" flexWrap="wrap">
-                      <Box width="20%" pt={3}>
-                        İsim :
-                      </Box>
+                      <Box width="25%" pt={3}>
+                        İsim 
+                      </Box>:
                       <Box> {user.displayName}</Box>
                     </Box>
                     <Box py={3} display="flex" alignItems="end" flexWrap="wrap">
-                      <Box width="20%" >Email :</Box>
+                      <Box width="25%" >Email </Box>: 
                       <Box> {user.email}</Box>
                     </Box>
                     <Box display="flex" flexWrap="wrap" alignItems="end">
-                      <Box w="20%">Telefon :</Box>
-                      <Box> {user?.phoneNumber}</Box>
+                      <Box w="25%">Telefon </Box>:
+                      <Box> {user.phoneNumber}</Box>
                     </Box>
                   </Box>
                 </Box>

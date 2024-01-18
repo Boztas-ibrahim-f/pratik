@@ -24,7 +24,7 @@ function SignUp() {
 
   const handleSignUp = async (values) => {
     try {
-      const userData = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         auth,
         values.email,
         values.password
@@ -69,7 +69,8 @@ function SignUp() {
           }}
           h={{
             base: "65%",
-            s: "50%"
+            s: "50%",
+            
           }}
         >
           <Formik

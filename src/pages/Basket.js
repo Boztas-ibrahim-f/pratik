@@ -5,7 +5,6 @@ import {
   Card,
   CardBody,
   CardFooter,
-  Divider,
   Heading,
   Image,
   Stack,
@@ -15,7 +14,7 @@ import {
 import Logo from "../Ted.jpg";
 import alışveriş from "../Alışveriş sepetiniz boştur..jpg";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Basket() {
@@ -25,15 +24,6 @@ function Basket() {
   const handleBasket = localStorage.getItem("basket");
   const storedBasket = JSON.parse(handleBasket);
 
-  useEffect(() => {
-    if (storedBasket) {
-      setCart(storedBasket);
-    }
-  }, []);
-
-  // Ekleme işlemi
-
-  // Çıkartma işlemi
   const handleRemoveFromCart = (urunId) => {
     const updatedCart = cart.filter((urun) => urun.id !== urunId);
     setCart(updatedCart);
