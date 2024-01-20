@@ -59,14 +59,7 @@ function SignIn() {
             lg: "40%",
             xl: "30%",
           }}
-          h={{
-            base: "50%",
-            md: "55%",
-            lg: "45%",
-            
-          }}
           boxShadow="2xl"
-
         >
           <Formik
             initialValues={{
@@ -77,7 +70,6 @@ function SignIn() {
             onSubmit={(values) => {
               handleSignIn(values);
             }}
-            
           >
             {({ handleSubmit, errors, touched }) => (
               <form onSubmit={handleSubmit}>

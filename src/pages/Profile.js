@@ -67,7 +67,6 @@ function Profile() {
     await signOut(auth);
     toast.success("Kullanıcı silme işlemi başarılı.");
     await user.delete(auth);
-    
   };
   const authClick = async () => {
     navigate("/");
@@ -95,7 +94,7 @@ function Profile() {
             base: "25%",
             sm: "40%",
             md: "7%",
-            lg: "10%"
+            lg: "10%",
           }}
           borderRadius="full"
           onClick={() => navigate("/")}
@@ -103,7 +102,9 @@ function Profile() {
         />
         {md ? (
           <OrangeButton to="/">Ana Sayfa</OrangeButton>
-        ) : <Button display="none" >Ana Sayfa</Button>}
+        ) : (
+          <Button display="none">Ana Sayfa</Button>
+        )}
       </GridItem>
       {md ? (
         <Flex>
@@ -126,7 +127,6 @@ function Profile() {
               />
             </Box>
             <Button colorScheme="purple" onClick={() => setMenuVisible(!true)}>
-              
               Bilgilerimi Göster
             </Button>
             <Button colorScheme="purple" onClick={() => setMenuVisible(!false)}>
@@ -180,14 +180,6 @@ function Profile() {
                         value={veri.email}
                         onChange={(e) => handleChange(e, "email")}
                       />
-                      <Input
-                        focusBorderColor="purple.400"
-                        variant="flushed"
-                        type="number"
-                        placeholder="Telefon numarası"
-                        value={veri.number}
-                        onChange={(e) => handleChange(e, "number")}
-                      />
                     </InputGroup>
                     <Box
                       width="full"
@@ -228,10 +220,6 @@ function Profile() {
                       <Box width="30%">Email </Box>
                       <Box>: {user.email}</Box>
                     </Box>
-                    <Box my={3} display="flex">
-                      <Box w="30%">Telefon</Box>
-                      <Box>: {user?.phoneNumber}</Box>
-                    </Box>
                   </Box>
                 </Box>
               </Flex>
@@ -240,98 +228,91 @@ function Profile() {
         </Flex>
       ) : (
         <>
-        <Box borderRightRadius="50" display="inline">
-          <Button ref={btnRef} colorScheme="blue" onClick={onOpen} width="10p" pl="3" display="flex">
-            Menu
-          </Button>
-          <GridItem width="full" height="full">
-            {menuVisible ? (
-              <Flex
-                alignItems="center"
-                gap="3"
-                width="full"
-                height="auto"
-              >
-                <Box height="min-content" width="full" p={10}>
-                  <form onSubmit={handleSubmit}>
-                    <InputGroup
-                      flexDirection="column"
-                      shadow={2}
-                      borderStyle="solid"
-                      border="2"
-                      gap={2}
-                    >
-                      <Input
-                        focusBorderColor="purple.400"
-                        variant="flushed"
-                        placeholder="İsim"
-                        value={veri.displayName}
-                        onChange={(e) => handleChange(e, "displayName")}
-                      />
-                      <Input
-                        focusBorderColor="purple.400"
-                        variant="flushed"
-                        placeholder="Email"
-                        value={veri.email}
-                        onChange={(e) => handleChange(e, "email")}
-                      />
-                      <Input
-                        focusBorderColor="purple.400"
-                        variant="flushed"
-                        type="number"
-                        placeholder="Telefon numarası"
-                        value={veri.number}
-                        onChange={(e) => handleChange(e, "number")}
-                      />
-                    </InputGroup>
+          <Box borderRightRadius="50" display="inline">
+            <Button
+              ref={btnRef}
+              colorScheme="blue"
+              onClick={onOpen}
+              width="10p"
+              pl="3"
+              display="flex"
+            >
+              Menu
+            </Button>
+            <GridItem width="full" height="full">
+              {menuVisible ? (
+                <Flex alignItems="center" gap="3" width="full" height="auto">
+                  <Box height="min-content" width="full" p={10}>
+                    <form onSubmit={handleSubmit}>
+                      <InputGroup
+                        flexDirection="column"
+                        shadow={2}
+                        borderStyle="solid"
+                        border="2"
+                        gap={2}
+                      >
+                        <Input
+                          focusBorderColor="purple.400"
+                          variant="flushed"
+                          placeholder="İsim"
+                          value={veri.displayName}
+                          onChange={(e) => handleChange(e, "displayName")}
+                        />
+                        <Input
+                          focusBorderColor="purple.400"
+                          variant="flushed"
+                          placeholder="Email"
+                          value={veri.email}
+                          onChange={(e) => handleChange(e, "email")}
+                        />
+                      </InputGroup>
+                      <Box
+                        width="full"
+                        display="flex"
+                        justifyContent="end"
+                        mt={4}
+                      >
+                        <Button colorScheme="blue" type="submit">
+                          Değiştir
+                        </Button>
+                      </Box>
+                    </form>
+                  </Box>
+                </Flex>
+              ) : (
+                <Flex
+                  alignItems="center"
+                  mt="50"
+                  width="full"
+                  height="auto"
+                  gap="10"
+                >
+                  <Box height="max-content" width="full">
                     <Box
-                      width="full"
-                      display="flex"
-                      justifyContent="end"
-                      mt={4}
+                      borderStyle="solid"
+                      borderColor="blue.400"
+                      pl={10}
+                      flexWrap="wrap"
                     >
-                      <Button colorScheme="blue" type="submit">
-                        Değiştir
-                      </Button>
-                    </Box>
-                  </form>
-                </Box>
-              </Flex>
-            ) : (
-              <Flex
-                alignItems="center"
-                mt="50"
-
-                width="full"
-                height="auto"
-                gap="10"
-              >
-                <Box height="max-content" width="full">
-                  <Box
-                    borderStyle="solid"
-                    borderColor="blue.400"
-                    pl={10}
-                    flexWrap="wrap"
-                  >
-                    <Box alignItems="end" display="flex" flexWrap="wrap">
-                      <Box width="25%" pt={3}>
-                        İsim 
-                      </Box>:
-                      <Box> {user.displayName}</Box>
-                    </Box>
-                    <Box py={3} display="flex" alignItems="end" flexWrap="wrap">
-                      <Box width="25%" >Email </Box>: 
-                      <Box> {user.email}</Box>
-                    </Box>
-                    <Box display="flex" flexWrap="wrap" alignItems="end">
-                      <Box w="25%">Telefon </Box>:
-                      <Box> {user.phoneNumber}</Box>
+                      <Box alignItems="end" display="flex" flexWrap="wrap">
+                        <Box width="25%" pt={3}>
+                          İsim
+                        </Box>
+                        :<Box> {user.displayName}</Box>
+                      </Box>
+                      <Box
+                        py={3}
+                        display="flex"
+                        alignItems="end"
+                        flexWrap="wrap"
+                      >
+                        <Box width="25%">Email </Box>:<Box> {user.email}</Box>
+                      </Box>
                     </Box>
                   </Box>
-                </Box>
-              </Flex>
-            )}
-          </GridItem>
+                </Flex>
+              )}
+            </GridItem>
           </Box>
           <Drawer
             isOpen={isOpen}
@@ -343,47 +324,78 @@ function Profile() {
             <DrawerContent>
               <DrawerCloseButton />
               <DrawerHeader mt={6}>
-              <Box display="flex" width="full" justifyContent="center" mt={10}>
-              <Image
-                src="https://www.glassium.com/img/products/yt0108-yuvarlak-cam-tablo-kirilmaz-ev-dekorasyonu-1_07.04.2023_eb41548.jpg"
-                w={100}
-                h={100}
-                alignItems="center"
-                borderRadius="full"
-              />
-            </Box>
+                <Box
+                  display="flex"
+                  width="full"
+                  justifyContent="center"
+                  mt={10}
+                >
+                  <Image
+                    src="https://www.glassium.com/img/products/yt0108-yuvarlak-cam-tablo-kirilmaz-ev-dekorasyonu-1_07.04.2023_eb41548.jpg"
+                    w={100}
+                    h={100}
+                    alignItems="center"
+                    borderRadius="full"
+                  />
+                </Box>
               </DrawerHeader>
 
-              <DrawerBody w="100%" display="flex" flexDirection="column" gap={2} mt={6}>
-              <Button
-              colorScheme="purple"
-              onClick={() => {navigate("/");onClose()}}
-            >
-              Ana Sayfa
-            </Button>
-               
-            <Button colorScheme="purple" onClick={() => {setMenuVisible(!true);onClose()}}>
-              
-              Bilgilerimi Göster
-            </Button>
-            <Button colorScheme="purple" onClick={() => {setMenuVisible(!false);onClose()}}>
-              Bilgilerimi Değiştir
-            </Button>
-            <Button
-              colorScheme="purple"
-              onClick={() => navigate("/reset-password")}
-            >
-              Şifremi Yenile
-            </Button>
+              <DrawerBody
+                w="100%"
+                display="flex"
+                flexDirection="column"
+                gap={2}
+                mt={6}
+              >
+                <Button
+                  colorScheme="purple"
+                  onClick={() => {
+                    navigate("/");
+                    onClose();
+                  }}
+                >
+                  Ana Sayfa
+                </Button>
+
+                <Button
+                  colorScheme="purple"
+                  onClick={() => {
+                    setMenuVisible(!true);
+                    onClose();
+                  }}
+                >
+                  Bilgilerimi Göster
+                </Button>
+                <Button
+                  colorScheme="purple"
+                  onClick={() => {
+                    setMenuVisible(!false);
+                    onClose();
+                  }}
+                >
+                  Bilgilerimi Değiştir
+                </Button>
+                <Button
+                  colorScheme="purple"
+                  onClick={() => navigate("/reset-password")}
+                >
+                  Şifremi Yenile
+                </Button>
               </DrawerBody>
 
-              <DrawerFooter display="flex" flexDirection="column" gap={1} mt="auto" w="full">
-              <Button colorScheme="blue" onClick={deleteUser} w="full">
-                Hesabımı Sil
-              </Button>
-              <Button colorScheme="blue" onClick={authClick} w="full">
-                Çıkış Yap
-              </Button>
+              <DrawerFooter
+                display="flex"
+                flexDirection="column"
+                gap={1}
+                mt="auto"
+                w="full"
+              >
+                <Button colorScheme="blue" onClick={deleteUser} w="full">
+                  Hesabımı Sil
+                </Button>
+                <Button colorScheme="blue" onClick={authClick} w="full">
+                  Çıkış Yap
+                </Button>
               </DrawerFooter>
             </DrawerContent>
           </Drawer>
